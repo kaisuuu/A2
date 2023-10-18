@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Geographic Distribution of World Population Metrics",
+    "width": 800,
+    "height": 500,
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        },
+        "projection": {"type": "equalEarth"},
+        "mark": {"type": "geoshape", "stroke": "white"},
+        "encoding": {
+          "tooltip": [{"field": "properties.NAME", "type": "nominal", "title": "Country"}]
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/kaisuuu/3179/main/dataset/World%20Population%20Live%20Dataset.csv",
+          "format": {"type": "csv"}
+        },
+        "mark": {"type": "circle", "opacity": 0.7},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "color": {
+            "field": "2022",
+            "type": "quantitative",
+            "scale": {"scheme": "viridis"},
+            "legend": {"title": "Population in 2022"}
+          },
+          "size": {
+            "field": "Area (km²)",
+            "type": "quantitative",
+            "legend": {"title": "Area (km²)"}
+          },
+          "tooltip": [
+            {"field": "name", "type": "nominal", "title": "Country Name"},
+            {"field": "2022", "type": "quantitative", "title": "Population in 2022"},
+            {"field": "Area (km²)", "type": "quantitative", "title": "Area (km²)"},
+            {"field": "Density (per km²)", "type": "quantitative", "title": "Density (per km²)"},
+            {"field": "GrowthRate", "type": "quantitative", "title": "Growth Rate"},
+            {"field": "World Population Percentage", "type": "quantitative", "title": "World Population Percentage"},
+            {"field": "Rank", "type": "ordinal", "title": "Rank"}
+          ]
+        }
+      }
+    ],
+    "config": {"view": {"stroke": "transparent"}}
+  }
+  

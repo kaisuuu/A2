@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+</head>
+<body>
+
+<section>
+    <h2>Introduction</h2>
+    <p>
+        This dashboard provides a comprehensive view of the world's population trends, distribution, and growth. Drawing from a rich dataset that spans multiple years, the visualizations offer insights into how populations are distributed across countries, how they've grown over time, and more.
+    </p>
+</section>
+
+<div id="mapchart"></div>
+<script type="text/javascript">
+    var specMap = "js/map.json";
+    vegaEmbed('#mapchart', specMap).then(function(result) {
+    }).catch(console.error);
+</script>
+<p>
+    The map visualization showcases the geographical distribution of populations across the globe. Countries with denser shades have higher populations. This view allows us to quickly identify the most populated regions in the world.
+</p>
+
+<div id="barchart"></div>
+<script type="text/javascript">
+    var specBar = "js/bar.json";
+    vegaEmbed('#barchart', specBar).then(function(result) {
+    }).catch(console.error);
+</script>
+<p>
+    The bar chart depicts the top countries by population. It provides a clear ranking and allows for easy comparison between countries. From this chart, we can identify which countries have the highest populations.
+</p>
+
+<div id="linechart"></div>
+<script type="text/javascript">
+    var specLine = "js/linechart.json";
+    vegaEmbed('#linechart', specLine).then(function(result) {
+    }).catch(console.error);
+</script>
+<p>
+    The line chart illustrates the trend of population growth over the years. It gives insights into how populations in major countries have grown, remained stable, or declined over the decades.
+</p>
+
+<div id="scatterchart"></div>
+<script type="text/javascript">
+    var specScatter = "js/scotpoint.json";
+    vegaEmbed('#scatterchart', specScatter).then(function(result) {
+    }).catch(console.error);
+</script>
+<p>
+    The scatter plot offers insights into the relationship between different population metrics. It can help identify patterns or anomalies in the data.
+</p>
+
+<div id="piechart"></div>
+<script type="text/javascript">
+    var specPie = "js/piechart.json";
+    vegaEmbed('#piechart', specPie).then(function(result) {
+    }).catch(console.error);
+</script>
+<p>
+    The pie chart provides a visual distribution of the world's population across major countries. It offers a perspective on how the global population is spread out.
+</p>
+
+<section>
+  <h2>Conclusion</h2>
+  <p>
+      Through these visualizations, we gain a deeper understanding of global population trends. It's evident that certain countries dominate in terms of population, and the growth trends provide valuable insights into how global demographics might shift in the future. The visualizations serve as a useful tool for policymakers, researchers, and anyone interested in global population studies.
+  </p>
+</section>
+
+
+</body>
+</html>
